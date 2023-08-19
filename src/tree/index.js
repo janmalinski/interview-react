@@ -7,11 +7,24 @@ import data from './data.json'
 const Tree = () => {
     return (
             <div className="tree">
-                {data.reverse().map((item) => (
+                {data.map((item) => {
+                    const zeroLevel = item.parentId === undefined;
+                    const firstLevel = item.parentId === 1;
+                    const secondLevel = item.parentId === 3;
+                    const thirdLevel = item.parentId === 5;
+                    const name = item.name;
+                    const firstLetter= name[0];
+                    const wordWithoutFirstLetter = name.substring(1);
+                    return (
                     <div key={item.id}>
-                        <><span className={item.parentId === 1 ? 'four-spaces-left' : item.parentId === 3 ? 'eight-spaces-left' : item.parentId === 5 ? 'twelve-spaces-left' :  undefined}>{item.name}</span><br/></>
+                        <><span className={firstLevel ? 'four-spaces-left' : secondLevel ? 'eight-spaces-left' : thirdLevel ? 'twelve-spaces-left' :  undefined}>
+                        { zeroLevel ? name :  firstLevel ? firstLetter + '.' + wordWithoutFirstLetter : secondLevel ? firstLetter + '..' + wordWithoutFirstLetter : thirdLevel && firstLetter + '...' + wordWithoutFirstLetter}
+                        </span><br/></>
                     </div>
-                ))}
+                    )
+                }
+                    
+                )}
             </div>
     );
 };
