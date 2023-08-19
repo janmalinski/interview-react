@@ -4,12 +4,15 @@
     padding: 10px;
     font-family: monospace
 }
-.four-spaces-left:before {
-    content:"\00a0\00a0\00a0\00a0";
+
+.four-spaces-left {
+    margin-left: 40px;
 }
-.eight-spaces-left:before {
-    content:"\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+
+.eight-spaces-left {
+    margin-left: 80px;
 }
-.twelve-spaces-left:before {
-    content:"\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+
+.twelve-spaces-left {
+    margin-left: 120px;
 }

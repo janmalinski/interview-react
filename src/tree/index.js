@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import './index.css'
 import axios from 'axios'
+
+import './index.css'
+import data from './data.json'
 
 const Tree = () => {
     return (
             <div className="tree">
-                root<br/>
-                <span className="four-spaces-left">ant</span><br/>
-                <span className="four-spaces-left">bear</span><br/>
-                <span className="eight-spaces-left">cat</span><br/>
-                <span className="eight-spaces-left">dog</span><br/>
-                <span className="twelve-spaces-left">elephant</span><br/>
-                <span className="four-spaces-left">frog</span><br/>
+                {data.map((item) => (
+                    <div key={item.id}>
+                        <><span className={item.parentId === 1 ? 'four-spaces-left' : item.parentId === 3 ? 'eight-spaces-left' : item.parentId === 5 ? 'twelve-spaces-left' :  undefined}>{item.name}</span><br/></>
+                    </div>
+                ))}
             </div>
-    )
-}
+    );
+};
 
 export default Tree;
