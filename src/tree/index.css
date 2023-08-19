@@ -4,3 +4,12 @@
     padding: 10px;
     font-family: monospace
 }
+.four-spaces-left:before {
+    content:"\00a0\00a0\00a0\00a0";
+}
+.eight-spaces-left:before {
+    content:"\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}
+.twelve-spaces-left:before {
+    content:"\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+}

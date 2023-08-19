@@ -6,12 +6,12 @@ const Tree = () => {
     return (
             <div className="tree">
                 root<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;ant <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;bear <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cat <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dog <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elephant <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;frog <br/>
+                <span className="four-spaces-left">ant</span><br/>
+                <span className="four-spaces-left">bear</span><br/>
+                <span className="eight-spaces-left">cat</span><br/>
+                <span className="eight-spaces-left">dog</span><br/>
+                <span className="twelve-spaces-left">elephant</span><br/>
+                <span className="four-spaces-left">frog</span><br/>
             </div>
     )
 }
