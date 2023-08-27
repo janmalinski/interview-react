@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 
-import './index.css'
-import dataJson from './data.json'
+import './index.css';
+import dataJson from './data.json';
+import Toggle from "./components/Toggle";
 
 const Tree = () => {
 
@@ -52,8 +53,13 @@ const Tree = () => {
         setData(dataWithoutRemovedItem);
     };
 
+    const handleOnToggle = (data) => {
+        setData([...data]);
+    };
+
     return (
             <div className="tree">
+                <Toggle label="Alphabetize" data={data} onToggle={handleOnToggle} />
                 {data.map((item) => {
 
                     const zeroLevel = item.parentId === 1 
