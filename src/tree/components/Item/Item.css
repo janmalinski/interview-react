@@ -1,0 +1,15 @@
+.four-spaces-left {
+    margin-left: 40px;
+}
+
+.eight-spaces-left {
+    margin-left: 80px;
+}
+
+.twelve-spaces-left {
+    margin-left: 120px;
+}
+
+.button {
+    border: 0;
+}

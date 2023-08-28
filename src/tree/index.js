@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 
 import './index.css';
-import Toggle from "./components/Toggle";
+import Toggle from "./components/Toggle/Toggle";
+import Item from "./components/Item/Item";
 
 const Tree = () => {
    
@@ -94,31 +95,9 @@ const Tree = () => {
                 {isLoading ?
                     <p>loading...</p>
                 :
-                    data.map((item, index) => {
-                        const zeroLevel = item.parentId === 1 
-                        const firstLevel = item.parentId === 3 
-                        const secondLevel = item.parentId === 5 
-
-                        const itemsZeroLevel = data.filter(item => item.parentId === 1);
-                        const lastItemZeroLevelId =  itemsZeroLevel[itemsZeroLevel.length - 1] && itemsZeroLevel[itemsZeroLevel.length - 1].id;
-
-                        const itemsFirstLevel = data.filter(item => item.parentId === 3);
-                        const lastItemFirstLevelId =  itemsFirstLevel[itemsFirstLevel.length - 1] && itemsFirstLevel[itemsFirstLevel.length - 1].id;
-
-                        const itemsSecondLevel = data.filter(item => item.parentId === 5);
-                        const lastItemSecondLevelId =  itemsSecondLevel[itemsSecondLevel.length - 1] && itemsSecondLevel[itemsSecondLevel.length - 1].id;
-                        
-                    return (
-                        <div key={index}>
-                            <><span className={zeroLevel ? 'four-spaces-left' : firstLevel ? 'eight-spaces-left' : secondLevel ? 'twelve-spaces-left' :  undefined}>
-                            {item.name} <button type='button' onClick={()=>removeItem(item.id)} style={{border: 0}}>❌</button>
-                            </span><br/></>
-                            {lastItemZeroLevelId === item.id && <input className='four-spaces-left' type="text" onKeyDown={addItem} onChange={()=>setCurrentId(item.id)}/> }
-                            {lastItemFirstLevelId === item.id && <input className='eight-spaces-left' type="text" onKeyDown={addItem} onChange={()=>setCurrentId(item.id)}/> }
-                            {lastItemSecondLevelId === item.id && <input className='twelve-spaces-left' type="text" onKeyDown={addItem} onChange={()=>setCurrentId(item.id)}/> }
-                        </div>
-                        );
-                    })
+                    data.map((item, index) => (
+                            <Item key={index} item={item} data={data} addItem={addItem} removeItem={removeItem} setCurrentId={setCurrentId} />
+                    ))
                 }
             </div>
     );
